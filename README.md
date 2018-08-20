@@ -1,4 +1,9 @@
-# Scripts
+## Inlcudes
+
+-   Simple Header / Content / Footer Flexbox
+-   Animated Inline svg
+
+## Scripts
 
 -   "build"
 -   "build:prod"
