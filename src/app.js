@@ -1,2 +1,5 @@
 import './assets/scss/app.scss';
-import './assets/media/logo/logo.svg';
+/**
+ * Remember to import assets fow webpack
+ */
+// import './assets/media/logo/logo.svg';
