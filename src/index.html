@@ -16,11 +16,12 @@
   <meta http-equiv="X-UA-Compatible"
     content="ie=edge">
 
-  <title>Secure Password Generator</title>
+  <title>Lucas Del Pozzi</title>
 
   <style>
     body {
-      font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+      font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+        monospace;
       -webkit-font-smoothing: antialiased;
       font-size: 1rem;
       font-weight: normal;
@@ -80,45 +81,99 @@
       align-content: center;
     }
 
-    .logo img {
-      height: 80px
+    .logo {
+      height: 80px;
     }
 
-    .no-selection {
-      /* prevent selection */
-      -webkit-touch-callout: none;
-      /* iOS Safari */
-      -webkit-user-select: none;
-      /* Safari */
-      -khtml-user-select: none;
-      /* Konqueror HTML */
-      -moz-user-select: none;
-      /* Firefox */
-      -ms-user-select: none;
-      /* Internet Explorer/Edge */
-      user-select: none;
-      /* Non-prefixed version, currently supported by Chrome and Opera */
+    /** Logo Animation
+      462 is the line lenght
+    */
+
+    .path {
+      stroke: #292b2c;
+      stroke-dasharray: 462;
+      stroke-dashoffset: 462;
+      animation: dash 2.5s linear forwards;
+      animation-delay: 0.25s;
+      animation-iteration-count: 1;
     }
+
+    .backpath {
+      stroke: #7d7e7d;
+      width: 1;
+      stroke-dasharray: 462;
+      stroke-dashoffset: 462;
+      animation: dash 2.5s linear forwards;
+      animation-iteration-count: 1;
+    }
+
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .polygon_top,
+    .polygon_right,
+    .polygon_left{
+      fill:#fff;
+      stroke:#fff;
+      transition: all 0.5s ease;
+    }
+
+    .polygon_top:hover,
+    .polygon_right:hover,
+    .polygon_left:hover{
+      fill:#292b2c;
+      stroke:#292b2c;
+    }
+
+
+
   </style>
 </head>
 
 <body>
 
   <div class="container">
-      <div class="logo"><img src="./assets/media/logo/logo.svg" alt="logo"></div>
-      <h1 class="me">Lucas Del Pozzi</h1>
 
-      <ul class="links">
-        <li>
-          <a href="twitter">twitter</a>
-        </li>
-        <li>
-          <a href="linkedin">linkedin</a>
-        </li>
-        <li>
-          <a href="github">github</a>
-        </li>
-      </ul>
+    <svg class="logo"
+      viewBox="0 0 102 118"
+      xmlns="http://www.w3.org/2000/svg">
+
+      <polygon class="polygon_top" points="51 58.58 50.6 115.87 100.6 87.12 100.6 29.62 51 58.58"/>
+      <polygon class="polygon_right" points="1.4 87.12 1 29.83 51 58.58 51 116.08 1.4 87.12"/>
+      <polygon class="polygon_left" points="50.6 0.87 1 29.83 51 58.58 100.6 29.62 50.6 0.87"/>
+
+      <path fill="none"
+        class="backpath"
+        d="M101 29.62 51.4 58.58 1 29.62 1 87.12 51 115.87 101 87.12 101 29.62 51 0.87 1 29.62">
+      </path>
+
+      <path fill="none"
+        stroke-width="2"
+        class="path"
+        d="M101 29.62 51.4 58.58 1 29.62 1 87.12 51 115.87 101 87.12 101 29.62 51 0.87 1 29.62">
+      </path>
+
+
+    </svg>
+    <h1 class="me">Lucas Del Pozzi</h1>
+
+    <ul class="links">
+
+      <li>
+        <a href="https://twitter.com/closerluc">twitter</a>
+      </li>
+
+      <li>
+        <a href="https://www.linkedin.com/in/lucasdp/">linkedin</a>
+      </li>
+
+      <li>
+        <a href="https://github.com/lucsh">github</a>
+      </li>
+    </ul>
   </div>
 </body>
 </html>
