@@ -15,9 +15,6 @@
 
   <meta http-equiv="X-UA-Compatible"
     content="ie=edge">
-
-  <title>CloserLuc</title>
-
   <style>
 
   .container, html, body {
@@ -33,17 +30,17 @@
       font-weight: normal;
       line-height: 1.5;
       color: #fff;
-      background-color: #0c0c0d;
+      background-color: #181718;
     }
 
     ::selection {
       background: #fff;
-      color: #ddd;
+      color: #181718;
     }
 
     ::-moz-selection {
       background: #fff;
-      color: #ddd;
+      color: #181718;
     }
 
     a {
@@ -123,7 +120,7 @@
     */
 
     .path {
-      stroke: #ddd;
+      stroke: #fff;
       stroke-dasharray: 462;
       stroke-dashoffset: 462;
       animation: dash 2.5s linear forwards;
@@ -149,8 +146,8 @@
     .polygon_top,
     .polygon_right,
     .polygon_left {
-      fill: #0c0c0d;
-      stroke: #0c0c0d;
+      fill: #181718;
+      stroke: #181718;
       transition: all 0.5s ease;
     }
 
@@ -185,31 +182,34 @@
     <div class="whoami">
 
       <svg class="logo"
-        viewBox="0 0 102 118"
+        viewBox="0 0 115 130"
         xmlns="http://www.w3.org/2000/svg">
 
-        <polygon class="polygon_top"
-          points="51 58.58 50.6 115.87 100.6 87.12 100.6 29.62 51 58.58" />
-
+        <polygon class="polygon_left"
+                 points="57.9,65.2 57.9,122.3 57.5,122.5 7.5,93.8 7.5,36.2 " />
 
         <polygon class="polygon_right"
-          points="1.4 87.12 1 29.83 51 58.58 51 116.08 1.4 87.12" />
+                 points="107.5,36.2 107.5,93.8 57.9,122.3 57.9,65.2 " />
 
-
-        <polygon class="polygon_left"
-          points="50.6 0.87 1 29.83 51 58.58 100.6 29.62 50.6 0.87" />
-
+        <polygon class="polygon_top"
+                 points="107.5,36.2 57.9,65.2 7.5,36.2 57.5,7.5 "/>
 
         <path fill="none"
+          stroke-width="1"
           class="backpath"
-          d="M101 29.62 51.4 58.58 1 29.62 1 87.12 51 115.87 101 87.12 101 29.62 51 0.87 1 29.62">
+          d="M107.5,36.2l-49.6,29l-50.4-29v57.5l50,28.8l50-28.8V36.2l-50-28.8l-50,28.8">
         </path>
 
         <path fill="none"
-          stroke-width="2"
+          stroke-width="8"
           class="path"
-          d="M101 29.62 51.4 58.58 1 29.62 1 87.12 51 115.87 101 87.12 101 29.62 51 0.87 1 29.62">
+          stroke-linecap=butt
+          stroke-linejoin=round
+          stroke-miterlimit=1
+          d="M107.5,36.2l-49.6,29l-50.4-29v57.5l50,28.8l50-28.8V36.2l-50-28.8l-50,28.8">
         </path>
+
+
       </svg>
       <h1 class="me">CloserLuc</h1>
     </div>
