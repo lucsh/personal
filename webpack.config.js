@@ -1,10 +1,10 @@
-const path = require('path'),
-  webpack = require('webpack'),
-  CleanWebpackPlugin = require('clean-webpack-plugin'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  CopyWebpackPlugin = require('copy-webpack-plugin'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin'),
-  FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const extractPlugin = new ExtractTextPlugin({
   filename: './assets/css/app.css',
@@ -106,9 +106,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
-    new CopyWebpackPlugin([
-      { from: 'assets/htaccess', to: './.htaccess', toType: 'file' },
-    ]),
+    new CopyWebpackPlugin([{ from: 'assets/htaccess', to: './.htaccess', toType: 'file' }]),
     // extract-text-webpack-plugin instance
     extractPlugin,
   ],
