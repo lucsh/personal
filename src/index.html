@@ -96,6 +96,9 @@
     .logo {
       height: 80px;
     }
+    .logo2 {
+      height: 180px;
+    }
 
     .whoami {
       display: flex;
@@ -143,6 +146,55 @@
       fill: #181718;
       stroke: #181718;
       transition: all 0.5s ease;
+      animation: move_y 2.5s linear forwards;
+      animation-delay: 0.25s;
+      animation-iteration-count: 1;
+    }
+
+
+    ._polygon_top{
+      fill: #fff;
+      stroke: none;
+      transform: translateY(-30px);
+      transition: all 1s cubic-bezier(0.5, 0.2, 0.3, 1.0);
+      animation: move_yt 1s cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite alternate;
+      animation-delay: 0.25s;
+    }
+
+    ._polygon_right{
+      fill: #fff;
+      stroke: none;
+      transform: translateX(30px);
+      transition: all 1s cubic-bezier(0.5, 0.2, 0.3, 1.0);
+      animation: move_xr 1s cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite alternate;
+      animation-delay: 0.25s;
+    }
+
+    ._polygon_left {
+      fill: #fff;
+      stroke: none;
+      transform: translateX(-30px);
+      transition: all 1s cubic-bezier(0.5, 0.2, 0.3, 1.0);
+      animation: move_xl 1s cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite alternate;
+      animation-delay: 0.25s;
+    }
+
+    @keyframes move_xl {
+      to {
+        transform: translateX(0px)
+      }
+    }
+
+    @keyframes move_xr {
+      to {
+        transform: translateX(0px)
+      }
+    }
+
+    @keyframes move_yt {
+      to {
+        transform: translateY(-7px)
+      }
     }
 
     .polygon_top:hover,
@@ -189,6 +241,33 @@
         <path fill="none" stroke-width="5" class="path" stroke-linecap="butt" stroke-linejoin=round stroke-miterlimit=1
           d="M107.5,36.2l-49.6,29l-50.4-29v57.5l50,28.8l50-28.8V36.2l-50-28.8l-50,28.8">
         </path>
+
+
+      </svg>
+
+      <svg class="logo2" viewBox="0 0 300 345" xmlns="http://www.w3.org/2000/svg">
+
+        <polygon fill="#fff"
+        class="_polygon_top"
+        stroke-width="5"
+        class="path"
+        stroke-linecap="butt"
+        points="200,143.8 150.4,172.7 150.1,172.5 100,143.8 150,115 " />
+
+        <polygon fill="#fff"
+        class="_polygon_right"
+        stroke-width="5" class="path"
+        stroke-linecap="butt"
+        points="150.4,172.7 200,143.8 200,201.2 150,230 150,172.7 150.1,172.5 " />
+
+        <polygon fill="#fff"
+        class="_polygon_left"
+        stroke-width="5"
+        class="path"
+        stroke-linecap="butt"
+        points="100,143.8 150.1,172.5 150,172.7 150,230 100,201.2 " />
+
+
 
 
       </svg>
