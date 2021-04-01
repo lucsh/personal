@@ -7,4 +7,4 @@
 
 -   "build"
 -   "build:prod"
--   "dev" _Creates an http server @ http://localhost:2000_
+-   "dev" _Creates an http server @ http://0.0.0.0:3000/
