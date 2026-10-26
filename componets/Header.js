@@ -1,46 +1,31 @@
 import styled from "styled-components";
 
-const LinkList = styled.ul`
-    list-style: none;
-    font-size: 0.8rem;
-    font-weight: 100;
-    margin-bottom: auto;
-    padding: 0;
-  `;
-
-const Link = styled.li`
-    display: inline;
-    margin: 20px;
-
-a:before {
-    content: '>_';
-    margin-left: 0px;
-    margin-right: 5px;
+const Bar = styled.header`
+  min-height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+  .wordmark { font-size: 24px; font-weight: 700; letter-spacing: -1.5px; }
+  .wordmark span { color: var(--accent); }
+  nav { display: flex; gap: clamp(18px, 3vw, 40px); }
+  nav a { font-size: 12px; }
+  @media (max-width: 480px) {
+    min-height: 84px;
+    nav { gap: 16px; }
+    .github { display: none; }
   }
 `;
 
-function Header() {
-
-
+export default function Header() {
   return (
-    <LinkList>
-      <Link>
-        <a href="https://twitter.com/closerluc">twitter</a>
-      </Link>
-
-      <Link>
-        <a href="mailto:contact@luc.sh">contact@luc.sh</a>
-      </Link>
-
-      <Link>
-        <a href="https://github.com/lucsh">github</a>
-      </Link>
-
-        <Link>
-            <a href="https://www.linkedin.com/in/lucasdp/">linkedin</a>
-        </Link>
-    </LinkList>
+    <Bar>
+      <a className="wordmark" href="/" aria-label="Lucas Del Pozzi home">luc<span>.</span>sh</a>
+      <nav aria-label="Main navigation">
+        <a className="github" href="https://github.com/lucsh">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="mailto:contact@luc.sh">Let’s talk <span aria-hidden="true">↗</span></a>
+      </nav>
+    </Bar>
   );
 }
-
-export default Header;
