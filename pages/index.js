@@ -9,7 +9,7 @@ export default function Home() {
         <title>Lucas Del Pozzi — Principal &amp; Domain Lead, Agentic Engineering</title>
         <meta name="description" content="Lucas Del Pozzi — Principal & Domain Lead, Agentic Engineering. Building agent-driven engineering workflows and helping teams adopt them at SecurityScorecard." />
         <meta name="theme-color" content="#181a17" />
-        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+        <link rel="icon" href={`${process.env.NEXT_PUBLIC_SITE_BASE_PATH || ""}/logo.svg`} type="image/svg+xml" />
       </Head>
       <a href="#main-content" className="skip-link">Skip to content</a>
       <Container>

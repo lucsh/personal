@@ -5,7 +5,11 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          {process.env.NEXT_PUBLIC_SITE_BASE_PATH && (
+            <meta name="robots" content="noindex, nofollow, noarchive" />
+          )}
+        </Head>
         <body>
           <Main />
           <NextScript />

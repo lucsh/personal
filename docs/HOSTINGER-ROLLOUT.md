@@ -20,7 +20,9 @@ and successful local deployment. Follow the established local workflow unless
 new verification shows the hosting access has changed. GitHub can retain source
 and release artifacts without performing the upload.
 
-The personal site's domain/document root and access have not yet been verified.
+The personal site's domain/document root and SSH access have been verified:
+`https://luc.sh/` maps to `/home/bornar/luc.sh`. The remote homepage checksum
+matches the file served over HTTPS. Other files and directories share this root.
 Do not reuse the workout tracker's destination path. Its script uses `--delete`,
 which must not be copied blindly into a deployment targeting a shared web root.
 
@@ -78,5 +80,13 @@ pointer response, emulated touch/reset, reduced motion, and a 390px layout have
 passed browser checks. Development output is isolated in `.next-dev/`, so
 production builds no longer overwrite the running preview's assets.
 
-This document is a plan. No live-host inspection, upload, DNS change, or
-production deployment has been performed for this rollout.
+The main-site replacement remains planned. A separate unlisted preview is
+deployed into a random subfolder, with preview-specific asset paths and
+noindex metadata/headers. Its path is retained only in local ignored
+`.preview/release.json`. The existing homepage and domain-root robots settings
+are unchanged; no DNS changes are required.
+
+Live preview checks passed: HTTPS 200, all 13 referenced local URLs available,
+noindex response headers and page metadata, no-store caching, custom 404,
+desktop pointer response, emulated touch/reset, reduced motion, and no overflow
+at 390px. The main homepage still matches its pre-upload bytes.

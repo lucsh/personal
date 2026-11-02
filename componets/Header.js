@@ -21,7 +21,7 @@ const Bar = styled.header`
 export default function Header() {
   return (
     <Bar>
-      <a className="wordmark" href="/" aria-label="Lucas Del Pozzi home">luc<span>.</span>sh</a>
+      <a className="wordmark" href={`${process.env.NEXT_PUBLIC_SITE_BASE_PATH || ""}/`} aria-label="Lucas Del Pozzi home">luc<span>.</span>sh</a>
       <nav aria-label="Main navigation">
         <a className="github" href="https://github.com/lucsh">GitHub <span aria-hidden="true">↗</span></a>
         <a href="mailto:contact@luc.sh">Let’s talk <span aria-hidden="true">↗</span></a>

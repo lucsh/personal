@@ -172,7 +172,7 @@ export default function DitherCube() {
 
   return (
     <Surface className="art" ref={surface}>
-      <img ref={fallback} src="/dither-cube.svg" width="560" height="580" alt="" />
+      <img ref={fallback} src={`${process.env.NEXT_PUBLIC_SITE_BASE_PATH || ""}/dither-cube.svg`} width="560" height="580" alt="" />
       <canvas ref={canvas} width="280" height="290" aria-hidden="true" />
     </Surface>
   );
