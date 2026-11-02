@@ -1,35 +1,36 @@
-import React from "react";
 import styled from "styled-components";
 
-const StyledFooter = styled.footer`
-  font-size: 0.9rem;
-  font-weight: 100;
-  margin-top: auto;
-  p {
-    vertical-align: middle;
+const Bottom = styled.footer`
+  border-top: 1px solid var(--line);
+  padding: 28px 0 24px;
+  font-size: 11px;
+  .links, .meta { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  nav { display: flex; flex-wrap: wrap; gap: 24px; }
+  .meta { margin-top: 40px; color: var(--muted); font-size: 10px; }
+  p { margin: 0; }
+  @media (max-width: 600px) {
+    .links { align-items: flex-start; flex-direction: column; }
+    nav { gap: 20px; }
+    .meta { gap: 16px; align-items: flex-start; flex-direction: column; margin-top: 32px; }
   }
 `;
-const Copy = styled.p`
-  font-size: 0.7rem;
-  font-weight: 100;
 
-`;
-
-function Footer(props) {
-  const year = new Date().getFullYear();
+export default function Footer() {
   return (
-    <StyledFooter>
-      <p>+5492995713033</p>
-      <p>
-        Currently working for{" "}
-        <a href="https://securityscorecard.com/">SecurityScorecard</a>
-      </p>
-      <Copy>
-        &copy; {year} &#11042; This site is in github
-        <a href="https://github.com/lucsh/personal">/personal</a>
-      </Copy>
-    </StyledFooter>
+    <Bottom>
+      <div className="links">
+        <nav aria-label="Social links">
+          <a href="https://github.com/lucsh">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/lucasdp/">LinkedIn ↗</a>
+          <a href="https://twitter.com/closerluc">Twitter ↗</a>
+        </nav>
+        <a href="mailto:contact@luc.sh">contact@luc.sh ↗</a>
+      </div>
+      <div className="meta">
+        <p>© {new Date().getFullYear()} Lucas Del Pozzi</p>
+        <a href="tel:+34650188204">+34 650 188 204</a>
+        <a href="https://github.com/lucsh/personal">View source <span aria-hidden="true">↗</span></a>
+      </div>
+    </Bottom>
   );
 }
-
-export default Footer;
