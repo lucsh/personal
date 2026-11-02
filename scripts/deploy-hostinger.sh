@@ -21,7 +21,7 @@ ssh_args=(-i "$PERSONAL_DEPLOY_KEY" -p "$PERSONAL_DEPLOY_PORT" -o IdentitiesOnly
 printf -v ssh_command '%q ' ssh "${ssh_args[@]}"
 target="$PERSONAL_DEPLOY_USER@$PERSONAL_DEPLOY_HOST"
 root="$PERSONAL_DEPLOY_PATH"
-rsync -az --no-perms --omit-dir-times --dry-run --itemize-changes -e "$ssh_command" out/ "$target:$root/"
+rsync -az --no-owner --no-group --no-perms --omit-dir-times --dry-run --itemize-changes -e "$ssh_command" out/ "$target:$root/"
 [[ "$deploy" = 1 ]] || exit 0
 [[ -z "$(git status --porcelain)" ]] || { echo 'Commit changes before deployment' >&2; exit 1; }
 commit=$(git rev-parse HEAD)
@@ -57,7 +57,7 @@ ssh "${ssh_args[@]}" "$target" "bash -s -- '$root' '$release'" <<'REMOTE'
 set -euo pipefail
 root=$1; release=$2
 # Existing hashed assets remain available to visitors holding older HTML.
-rsync -a --no-perms --omit-dir-times --exclude '*.html' "$release/site/" "$root/"
+rsync -a --no-owner --no-group --no-perms --omit-dir-times --exclude '*.html' "$release/site/" "$root/"
 for file in 404.html index.html; do
   cp "$release/site/$file" "$root/.$file.next"
   chmod 644 "$root/.$file.next"

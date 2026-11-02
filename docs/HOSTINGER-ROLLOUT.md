@@ -1,7 +1,29 @@
 # Hostinger rollout plan
 
-Target launch: the week of 2–8 November 2026; exact day to be selected.
-Branch: `feat/site-refresh-hostinger`.
+Launched: 2 November 2026, via PR #19 (merged into `master`).
+Deployed site commit: `abba376e5ead841f8c98e01e4aa7d0f90293bf90`.
+Live URL: https://luc.sh/
+
+Backup/release directory:
+`/home/bornar/site-releases/luc-sh/20261102T153047Z-abba376e5ead`.
+To restore the previous site over the existing SSH connection, run:
+`bash /home/bornar/site-releases/luc-sh/20261102T153047Z-abba376e5ead/rollback.sh`.
+
+Production verification passed: homepage bytes match the release artifact,
+all 12 referenced local URLs load, no preview indexing restrictions are present,
+both luc.sh and www.luc.sh return 200, and the unlisted preview remains available.
+Browser checks passed for pointer movement, touch/reset, reduced motion, 390px
+layout without overflow, and no uncaught JavaScript errors.
+
+During launch, rsync changed the document root group and the host served a
+directory listing. The shared-host account could not restore group `nobody`;
+setting the public root to mode 755 restored access. Root `.htaccess` now contains
+`DirectoryIndex index.html index.php` and `Options -Indexes`. The deployment
+script now preserves owner, group, permissions, and directory times. Future
+uploads must retain these settings. The rollback restores site files while
+retaining this working access configuration.
+
+The original rollout plan follows for reference.
 
 ## Deployment approach
 
@@ -80,13 +102,13 @@ pointer response, emulated touch/reset, reduced motion, and a 390px layout have
 passed browser checks. Development output is isolated in `.next-dev/`, so
 production builds no longer overwrite the running preview's assets.
 
-The main-site replacement remains planned. A separate unlisted preview is
+The main-site replacement is live. A separate unlisted preview is
 deployed into a random subfolder, with preview-specific asset paths and
 noindex metadata/headers. Its path is retained only in local ignored
-`.preview/release.json`. The existing homepage and domain-root robots settings
-are unchanged; no DNS changes are required.
+`.preview/release.json`. Domain-root robots settings and DNS are unchanged.
 
 Live preview checks passed: HTTPS 200, all 13 referenced local URLs available,
 noindex response headers and page metadata, no-store caching, custom 404,
 desktop pointer response, emulated touch/reset, reduced motion, and no overflow
-at 390px. The main homepage still matches its pre-upload bytes.
+at 390px. At preview deployment, the main homepage matched its pre-upload bytes;
+the production release above has now replaced it.
